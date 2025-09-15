@@ -28,7 +28,8 @@ char const *strip(char const *str) {
   // consisted of nothing but spaces, so we'll return the
   // empty string.
   if (num_spaces >= size) {
-    return "";
+    //printf("Hello there! You're in the empty string case!\n");
+    return ((char*) calloc(1, sizeof(char))); // Allocate something so it can be properly freed later, and keep tests happy
   }
 
   // Allocate a slot for all the "saved" characters
@@ -44,6 +45,7 @@ char const *strip(char const *str) {
   result[i-first_non_space] = '\0';
   
   return result;
+  
 }
 
 /*
