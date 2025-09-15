@@ -7,19 +7,31 @@ TEST(strip, EmptyString) {
 }
 
 TEST(strip, NoWhitespace) {
-    ASSERT_STREQ("frog", strip("frog"));
+    char const* result = strip("frog");
+    ASSERT_STREQ("frog", result);
+    free((void*)result); // Clean 'result' up (what gets returned by strip)
+    result=NULL; // Set to null just in case
 }
 
 TEST(strip, WhitespaceOnFront) {
-    ASSERT_STREQ("frog", strip("   frog"));
+    char const* result = strip("   frog");
+    ASSERT_STREQ("frog", result);
+    free((void*)result); // Clean 'result' up (what gets returned by strip)
+    result=NULL; // Set to null just in case
 }
 
 TEST(strip, WhitespaceOnBack) {
-    ASSERT_STREQ("frog", strip("frog  "));
+    char const* result = strip("frog  ");
+    ASSERT_STREQ("frog", result);
+    free((void*)result); // Clean 'result' up (what gets returned by strip)
+    result=NULL; // Set to null just in case
 }
 
 TEST(strip, WhitespaceOnBothEnds) {
-    ASSERT_STREQ("frog", strip("  frog     "));
+    char const* result = strip("  frog     ");
+    ASSERT_STREQ("frog", result);
+    free((void*)result); // Clean 'result' up (what gets returned by strip)
+    result=NULL; // Set to null just in case
 }
 
 TEST(is_clean, EmptyString) {
