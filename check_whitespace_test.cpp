@@ -3,7 +3,10 @@
 #include "check_whitespace.h"
 
 TEST(strip, EmptyString) {
-    ASSERT_STREQ("", strip(""));
+    char const* result = strip("");
+    ASSERT_STREQ("", result);
+    free((void*)result); // Clean 'result' up (what gets returned by strip)
+    result=NULL; // Set to null just in case
 }
 
 TEST(strip, NoWhitespace) {
